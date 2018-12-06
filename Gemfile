@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -9,11 +11,12 @@ gem 'rails', '~> 5.2.1'
 gem 'sqlite3'
 
 group :development, :test do
-  gem 'byebug', platforms: %i(mri mingw x64_mingw)
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot', '4.11.1'
   gem 'faker', '1.9.1'
   gem 'rspec-rails', '3.8.1'
   gem 'rubocop', '0.59.2'
+  gem 'simplecov'
 end
 
 group :development do
@@ -27,4 +30,4 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

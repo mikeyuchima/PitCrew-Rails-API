@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -31,7 +33,7 @@ RSpec.configure do |config|
 
   # Tag Rake specs with `:task` metadata or put them in the spec/tasks dir
   config.shared_context_metadata_behavior = :apply_to_host_groups
-  config.define_derived_metadata(:file_path => %r{/spec/tasks/}) do |metadata|
+  config.define_derived_metadata(file_path: %r{/spec/tasks/}) do |metadata|
     metadata[:type] = :task
   end
 end
