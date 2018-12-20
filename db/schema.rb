@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,52 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_181_206_202_627) do
-  create_table 'dispatches', force: :cascade do |t|
-    t.string 'username'
-    t.string 'password'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+ActiveRecord::Schema.define(version: 2018_12_06_202627) do
+
+  create_table "dispatches", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'rides', force: :cascade do |t|
-    t.string 'name'
-    t.datetime 'date'
-    t.string 'latStart'
-    t.string 'longStart'
-    t.string 'latEnd'
-    t.string 'longEnd'
-    t.integer 'dispatch_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['dispatch_id'], name: 'index_rides_on_dispatch_id'
+  create_table "rides", force: :cascade do |t|
+    t.string "name"
+    t.datetime "date"
+    t.decimal "latStart", precision: 15, scale: 10
+    t.decimal "longStart", precision: 15, scale: 10
+    t.decimal "latEnd", precision: 15, scale: 10
+    t.decimal "longEnd", precision: 15, scale: 10
+    t.integer "dispatch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dispatch_id"], name: "index_rides_on_dispatch_id"
   end
 
-  create_table 'technicians', force: :cascade do |t|
-    t.string 'username'
-    t.string 'name'
-    t.string 'password'
-    t.integer 'ride_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['ride_id'], name: 'index_technicians_on_ride_id'
+  create_table "technicians", force: :cascade do |t|
+    t.string "username"
+    t.string "name"
+    t.string "password"
+    t.integer "ride_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ride_id"], name: "index_technicians_on_ride_id"
   end
 
-  create_table 'tickets', force: :cascade do |t|
-    t.string 'rider'
-    t.string 'contact'
-    t.string 'lat'
-    t.string 'lng'
-    t.string 'type'
-    t.string 'startTime'
-    t.string 'datetime'
-    t.datetime 'endTime'
-    t.string 'status'
-    t.integer 'ride_id'
-    t.integer 'technician_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['ride_id'], name: 'index_tickets_on_ride_id'
-    t.index ['technician_id'], name: 'index_tickets_on_technician_id'
+  create_table "tickets", force: :cascade do |t|
+    t.string "rider"
+    t.string "contact"
+    t.decimal "lat", precision: 15, scale: 10
+    t.decimal "lng", precision: 15, scale: 10
+    t.string "ttype"
+    t.datetime "startTime"
+    t.datetime "endTime"
+    t.string "status"
+    t.integer "ride_id"
+    t.integer "technician_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ride_id"], name: "index_tickets_on_ride_id"
+    t.index ["technician_id"], name: "index_tickets_on_technician_id"
   end
+
 end

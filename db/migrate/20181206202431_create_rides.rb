@@ -4,10 +4,10 @@ class CreateRides < ActiveRecord::Migration[5.2]
     create_table :rides do |t|
       t.string :name
       t.datetime :date
-      t.string :latStart
-      t.string :longStart
-      t.string :latEnd
-      t.string :longEnd
+      t.decimal :latStart, :precision => 15, :scale => 10
+      t.decimal :longStart, :precision => 15, :scale => 10
+      t.decimal :latEnd, :precision => 15, :scale => 10
+      t.decimal :longEnd, :precision => 15, :scale => 10
 
       t.belongs_to :dispatch
       t.timestamps

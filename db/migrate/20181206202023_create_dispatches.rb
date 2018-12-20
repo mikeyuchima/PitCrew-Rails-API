@@ -3,7 +3,7 @@ class CreateDispatches < ActiveRecord::Migration[5.2]
   def change
     create_table :dispatches do |t|
       t.string :username
-      t.string :password_hash
+      t.string :password
 
       t.timestamps
     end
