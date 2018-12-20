@@ -11,6 +11,7 @@ gem 'rails', '~> 5.2.1'
 gem 'sqlite3'
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker', '1.9.1'
