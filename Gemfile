@@ -12,7 +12,7 @@ gem 'sqlite3'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot', '4.11.1'
+  gem 'factory_bot_rails'
   gem 'faker', '1.9.1'
   gem 'rspec-rails', '3.8.1'
   gem 'rubocop', '0.59.2'
