@@ -9,8 +9,8 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 
 require 'rspec/rails'
 
-# require support files 
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
+# require support files
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 
 FactoryBot.factories.clear
 FactoryBot.definition_file_paths = [File.expand_path('factories', __dir__)]

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::V1::AuthenticationController < ApplicationController
     def login_technician
         tech = Technician.create(user_hash)
