@@ -4,8 +4,8 @@ class Api::V1::AuthenticationController < ApplicationController
         render json: tech
     end
     def login_dispatch
-        tech = Dispatch.create(user_hash)
-        render json: tech
+        dispach = Dispatch.create(user_hash)
+        render json: dispach
     end
     def user_hash
         params.permit(:username, :password)
