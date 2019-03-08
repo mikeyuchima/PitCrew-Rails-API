@@ -6,7 +6,8 @@ Rails.application.routes.draw do
       resources :tickets, only: [:create, :index]
       resources :authentication, only: [] do
         collection do
-          get :login
+          post :login_technician
+          post :login_dispatch
         end
       end
     end
