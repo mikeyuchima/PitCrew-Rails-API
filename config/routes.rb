@@ -10,6 +10,11 @@ Rails.application.routes.draw do
           post :login_dispatch
         end
       end
+      resources :registration, only: [] do
+        collection do
+          post :register
+        end
+      end
     end
   end
 end
