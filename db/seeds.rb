@@ -8,8 +8,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-4.times do 
-    dispatch = FactoryBot.create(:dispatch)
-    ride = FactoryBot.create(:ride, dispatch: dispatch)
-    FactoryBot.create(:technician, ride: ride)
+4.times do
+  dispatch = FactoryBot.create(:dispatch)
+  ride = FactoryBot.create(:ride, dispatch: dispatch)
+  FactoryBot.create(:technician, ride: ride)
 end
