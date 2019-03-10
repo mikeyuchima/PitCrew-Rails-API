@@ -1,10 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe AuthorizeApiRequest do
+RSpec.describe AuthorizeApiRequestTechnician do
   # Create test user
-  let(:user) { create(:user) }
+  let!(:dispatch) { FactoryBot.create(:dispatch) }
+  let!(:ride) { FactoryBot.create(:ride, dispatch: dispatch) }
+  let!(:user) { FactoryBot.create(:technician, ride: ride) }
   # Mock `Authorization` header
-  let(:header) { { 'Authorization' => token_generator(user.id) } }
+  let(:header) { { 'Authorization' => technician_token_generator(user.id) } }
   # Invalid request subject
   subject(:invalid_request_obj) { described_class.new({}) }
   # Valid request subject
@@ -33,7 +35,7 @@ RSpec.describe AuthorizeApiRequest do
       context 'when invalid token' do
         subject(:invalid_request_obj) do
           # custom helper method `token_generator`
-          described_class.new('Authorization' => token_generator(5))
+          described_class.new('Authorization' => technician_token_generator(5))
         end
 
         it 'raises an InvalidToken error' do
@@ -43,7 +45,7 @@ RSpec.describe AuthorizeApiRequest do
       end
 
       context 'when token is expired' do
-        let(:header) { { 'Authorization' => expired_token_generator(user.id) } }
+        let(:header) { { 'Authorization' => technician_expired_token_generator(user.id) } }
         subject(:request_obj) { described_class.new(header) }
 
         it 'raises ExceptionHandler::ExpiredSignature error' do
