@@ -10,6 +10,6 @@ class Api::V1::AuthenticationController < ApplicationController
         render json: dispach
     end
     def user_hash
-        params.permit(:username, :password)
+        params.permit(:username, :password_digest)
     end
 end

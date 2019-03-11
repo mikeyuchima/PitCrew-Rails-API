@@ -2,7 +2,8 @@
 
 FactoryBot.define do
   factory :dispatch do
-    username { Faker::Name.name }
-    password { 'password' }
+    name { Faker::Name.name }
+    email { Faker::Internet.email}
+    password_digest {'foobar'}
   end
 end

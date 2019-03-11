@@ -7,16 +7,16 @@ RSpec.describe Api::V1::AuthenticationController, type: :controller do
         let(:login_technician) {FactoryBot.create(:technician)}
         let(:params) do
             {
-                username: Faker::Name.name,
-                password: Faker::String.random(8)
+                name: Faker::Name.name,
+                password_digest: Faker::String.random(8)
             }
         end
         before do
             post :login_technician, params: params
         end
         it 'returns a successful response' do
-            expect(json_response[:username]).to eq(params[:username])
-            expect(json_response[:password]).to eq(params[:password])
+            expect(json[:username]).to eq(params[:username])
+            expect(json[:password_digest]).to eq(params[:password_digest])
         end
     end
 
@@ -24,16 +24,16 @@ RSpec.describe Api::V1::AuthenticationController, type: :controller do
         let(:login_dispatch) {FactoryBot.create(:dispatch)}
         let(:params) do
             {
-                username: Faker::Name.name,
-                password: Faker::String.random(8)
+                name: Faker::Name.name,
+                password_digest: Faker::String.random(8)
             }
         end
         before do
             post :login_dispatch, params: params
         end
         it 'returns a successful response' do
-            expect(json_response[:username]).to eq(params[:username])
-            expect(json_response[:password]).to eq(params[:password])
+            expect(json[:username]).to eq(params[:username])
+            expect(json[:password_digest]).to eq(params[:password_digest])
         end
     end
 end
