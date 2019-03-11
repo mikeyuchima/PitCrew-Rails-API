@@ -1,12 +1,22 @@
 module ControllerSpecHelper
-    # generate tokens from user id
-    def token_generator(user_id)
-      JsonWebToken.encode(user_id: user_id)
+    # generate tokens from dispatch id
+    def dispatch_token_generator(dispatch_id)
+      JsonWebToken.encode(dispatch_id: dispatch_id)
     end
   
-    # generate expired tokens from user id
-    def expired_token_generator(user_id)
-      JsonWebToken.encode({ user_id: user_id }, (Time.now.to_i - 10))
+    # generate expired tokens from dispatch id
+    def dispatch_expired_token_generator(dispatch_id)
+      JsonWebToken.encode({ dispatch_id: dispatch_id }, (Time.now.to_i - 10))
+    end
+
+    # generate tokens from technician id
+    def technician_token_generator(technician_id)
+      JsonWebToken.encode(technician_id: technician_id)
+    end
+  
+    # generate expired tokens from technician id
+    def technician_expired_token_generator(technician_id)
+      JsonWebToken.encode({ technician_id: technician_id }, (Time.now.to_i - 10))
     end
   
     # return valid headers
