@@ -2,9 +2,10 @@
 
 FactoryBot.define do
   factory :technician do
-    username { Faker::Name.name }
-    email { Faker::Internet.email }
-    password_digest 'foobar'
+    name { Faker::Name.name }
+    email { Faker::Internet.email}
+    password_digest {'foobar'}
+    
     association :ride_id, factory: :ride
   end
 end

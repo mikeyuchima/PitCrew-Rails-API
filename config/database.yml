@@ -11,7 +11,8 @@ development:
   database: <%= ENV['POSTGRES_DB'] %>
 test:
   <<: *default
-  database: <%= ENV['POSTGRES_TEST_DB'] %>
+  database: "travis"
+
 production:
   <<: *default
   database: <%= ENV['POSTGRES_DB'] %>

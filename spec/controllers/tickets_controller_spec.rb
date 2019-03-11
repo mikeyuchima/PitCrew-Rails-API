@@ -17,7 +17,7 @@ RSpec.describe Api::V1::TicketsController, type: :controller do
 
     context 'given valid params' do
       it 'returns successful response' do
-        expect(json_response.count).to eq(11)
+        expect(json.count).to eq(11)
       end
     end
   end
@@ -44,14 +44,14 @@ RSpec.describe Api::V1::TicketsController, type: :controller do
     before { post :create, params: params }
 
     it 'returns a successful response' do
-      expect(json_response['rider']).to eq(params[:rider])
-      expect(json_response['contact']).to eq(params[:contact])
-      expect(json_response['ttype']).to eq(params[:ttype])
-      expect(json_response['startTime'].to_date).to eq(params[:startTime].to_date)
-      expect(json_response['endTime'].to_date).to eq(params[:endTime].to_date)
-      expect(json_response['status']).to eq(params[:status])
-      expect(json_response['ride_id']).to eq(params[:ride_id])
-      expect(json_response['technician_id']).to eq(params[:technician_id])
+      expect(json['rider']).to eq(params[:rider])
+      expect(json['contact']).to eq(params[:contact])
+      expect(json['ttype']).to eq(params[:ttype])
+      expect(json['startTime'].to_date).to eq(params[:startTime].to_date)
+      expect(json['endTime'].to_date).to eq(params[:endTime].to_date)
+      expect(json['status']).to eq(params[:status])
+      expect(json['ride_id']).to eq(params[:ride_id])
+      expect(json['technician_id']).to eq(params[:technician_id])
     end
 
     it 'checks if it was created' do

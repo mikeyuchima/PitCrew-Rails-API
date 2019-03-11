@@ -6,5 +6,5 @@ class Technician < ApplicationRecord
   belongs_to :ride
   has_many :tickets
 
-  validates_presence_of :username, :email, :password_digest
+  validates_presence_of :name, :email, :password_digest
 end

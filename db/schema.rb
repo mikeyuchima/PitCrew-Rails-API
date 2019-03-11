@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_202627) do
   enable_extension "plpgsql"
 
   create_table "dispatches", force: :cascade do |t|
-    t.string "username"
+    t.string "name"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_202627) do
   end
 
   create_table "technicians", force: :cascade do |t|
-    t.string "username"
+    t.string "name"
     t.string "email"
     t.string "password_digest"
     t.bigint "ride_id"
